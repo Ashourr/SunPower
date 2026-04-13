@@ -1,0 +1,96 @@
+{
+  "splashscreen": {
+    "welcome": "Welcome to My Website",
+    "iAm": "I am",
+    "name": "Mohammed Ashour",
+    "title": "Front-End Web Developer",
+    "error": "Error loading data"
+  },
+  
+  "navbar": {
+    "home": "Home",
+    "about": "About Me",
+    "service": "Services",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact Us",
+    "logoAlt": "Logo",
+    "logoText": "Ashour"
+  },
+  "LocaleSwitcher": {
+    "english": "En",
+    "arabic": "Ar"
+  },
+
+  "header": {
+    "iam": "I am",
+    "DownloadCv": "Download CV",
+    "OppenCv": "View CV",
+    "error": "Error loading data",
+    "imageAlt": "Personal Image"
+  },
+
+  "about-home": {
+    "title": "About Me",
+    "Who-am": "Who am I?",
+    "PersonalInfo": "Personal Info",
+    "dec": "I`m Mohamed Ashour, a Frontend Developer passionate about creating attractive user interfaces and seamless interactive experiences. I have over a year of experience in HTML, CSS, JavaScript, Bootstrap, React.js, and Next.js. I pay great attention to details to enhance performance and ensure compatibility across different devices. I always strive to apply creativity and modern technologies in my projects to achieve  outstanding results."
+  },
+
+  "service": {
+    "title": "Services",
+    "link": "View More",
+    "error": "Error loading data",
+    "noServices": "No services available",
+    "viewAllAria": "View all services"
+  },
+
+  "skills": {
+    "title": "Skills",
+    "link": "View More",
+    "error": "Error loading data",
+    "noSkills": "No skills available",
+    "viewAllAria": "View all skills"
+  },
+
+  "projects": {
+    "title": "Projects",
+    "live": "Live Demo",
+    "link": "View More",
+    "error": "Error loading data",
+    "apiConnected": "Connected with API",
+    "liveDemoAria": "View project live",
+    "githubAria": "View project code on GitHub",
+    "viewAllAria": "View all projects",
+    "protectedLink": "🔒 Protected link. Please contact us to view it."
+  },
+
+  "headerAbout": {
+    "home": "Home",
+    "homeAria": "Return to Home page"
+  },
+
+  "footer": {
+    "error": "Error loading data",
+    "logoAlt": "Logo",
+    "quickLinks": "Quick links",
+    "home": "Home",
+    "about": "About Me",
+    "services": "Services",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact Us",
+    "webDesign": "Web Design",
+    "webApp": "Web Application",
+    "webDev": "Web Development",
+    "responsiveDesign": "Responsive Design",
+    "userTesting": "User Testing",
+    "landingPage": "Landing Page Design",
+    "location": "Egypt - El-Faiyum",
+    "copyright": "Copyright 2025 © All Rights Reserved",
+    "frontend": "Front End: ",
+    "backend": ", Back End: ",
+    "ashour": "Ashour",
+    "shehab": "Shehab"
+  }
+}

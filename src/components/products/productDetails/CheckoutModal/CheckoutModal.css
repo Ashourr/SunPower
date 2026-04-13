@@ -1,0 +1,562 @@
+/* ===========================
+   Modal Overlay
+=========================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+  padding: 16px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   Modal Container
+=========================== */
+.modal-overlay .modal-container {
+  background: var(--background);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: slideUp 0.3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #2c3136 transparent;
+  padding: 28px;
+}
+
+.modal-overlay .modal-container::-webkit-scrollbar {
+  width: 5px;
+}
+.modal-overlay .modal-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-overlay .modal-container::-webkit-scrollbar-thumb {
+  background: #2c3136;
+  border-radius: 10px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   Modal Close Button
+=========================== */
+.modal-overlay .modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--background2);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--foreground);
+  font-size: 14px;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+  z-index: 10;
+}
+
+.modal-overlay .modal-close:hover {
+  background: #f59e0b;
+  color: #000;
+  transform: rotate(90deg);
+}
+
+/* ===========================
+   Modal Header
+=========================== */
+.modal-overlay .modal-header {
+  padding: 0 28px 15px;
+  border-bottom: 1px solid var(--primary-color);
+  text-align: center;
+}
+
+.modal-overlay .modal-header h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.modal-overlay .modal-header p {
+  color: #f59e0b;
+  font-size: 14px;
+  margin: 0;
+}
+
+/* ===========================
+   Checkout Steps
+=========================== */
+.modal-overlay .checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px 28px 0;
+  position: relative;
+}
+
+.modal-overlay .checkout-steps::before {
+  content: "";
+  position: absolute;
+  top: 42px;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: var(--background2);
+  z-index: 0;
+}
+
+.modal-overlay .checkout-steps .step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.modal-overlay .checkout-steps .step span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--background2);
+  color: var(--foreground);
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  border: 2px solid var(--background2);
+}
+
+.modal-overlay .checkout-steps .step.active span {
+  background: #f59e0b;
+  border-color: #f59e0b;
+  color: #000;
+}
+
+.modal-overlay .checkout-steps .step.completed span {
+  background: #22c55e;
+  border-color: #22c55e;
+  color: #fff;
+}
+
+.modal-overlay .checkout-steps .step label {
+  font-size: 11px;
+  color: #8a8e92;
+  display: block;
+  cursor: default;
+}
+
+.modal-overlay .checkout-steps .step.active label {
+  color: #f59e0b;
+  font-weight: 600;
+}
+.modal-overlay .checkout-steps .step.completed label {
+  color: #22c55e;
+}
+
+/* ===========================
+   Modal Form
+=========================== */
+.modal-overlay .modal-step {
+  padding: 20px 28px;
+}
+
+.modal-overlay .form-group {
+  margin-bottom: 18px;
+}
+
+.modal-overlay .form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.modal-overlay .form-group label svg {
+  color: #f59e0b;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.modal-overlay .form-group input,
+.modal-overlay .form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+  background: var(--background2);
+  border: 1px solid var(--background2);
+  border-radius: 12px;
+  color: var(--foreground);
+  font-size: 14px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-overlay .form-group input:focus,
+.modal-overlay .form-group textarea:focus {
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px var(--primary-color);
+}
+
+.modal-overlay .form-group input.error {
+  border-color: #ef4444;
+}
+.modal-overlay .error-message {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ef4444;
+}
+.modal-overlay .form-group textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* ===========================
+   Payment Options
+=========================== */
+.modal-overlay .payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 30px 0;
+}
+
+.modal-overlay .payment-option {
+  display: flex;
+  padding: 16px;
+  background: var(--background2);
+  border: 2px solid var(--background2);
+  border-radius: 16px;
+  cursor: pointer;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.modal-overlay .payment-option:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+}
+.modal-overlay .payment-option.selected {
+  border-color: #f59e0b;
+  background: var(--background2);
+}
+.modal-overlay .payment-option input[type="radio"] {
+  display: none;
+}
+
+.modal-overlay .option-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  pointer-events: none;
+}
+
+.modal-overlay .option-content svg {
+  font-size: 26px;
+  color: #f59e0b;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+}
+.modal-overlay .option-content div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.modal-overlay .option-content strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+.modal-overlay .option-content span {
+  font-size: 12px;
+  color: var(--primary-color);
+}
+
+/* ===========================
+   Confirm Step
+=========================== */
+.modal-overlay .confirm-step h4 {
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--foreground);
+}
+
+.modal-overlay .order-summary {
+  background: var(--background2);
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid var(--background2);
+}
+
+.modal-overlay .summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--background2);
+  font-size: 14px;
+}
+
+.modal-overlay .summary-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.modal-overlay .summary-item > span:first-child {
+  color: #8a8e92;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.modal-overlay .summary-item > span:last-child,
+.modal-overlay .summary-item > strong {
+  text-align: right;
+  color: var(--foreground);
+  word-break: break-word;
+}
+.modal-overlay .price-highlight {
+  color: #f59e0b;
+  font-size: 16px;
+}
+
+/* ===========================
+   Modal Actions
+=========================== */
+.modal-overlay .modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-overlay .btn-prev,
+.modal-overlay .btn-next,
+.modal-overlay .btn-submit {
+  flex: 1;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+}
+
+.modal-overlay .btn-prev {
+  background: var(--background2);
+  color: var(--foreground);
+  flex: 0 0 auto;
+  padding: 14px 20px;
+}
+.modal-overlay .btn-prev:hover {
+  background: #3a4048;
+  transform: translateY(-2px);
+}
+
+.modal-overlay .btn-next,
+.modal-overlay .btn-submit {
+  background: #f59e0b;
+  color: #000;
+}
+
+.modal-overlay .btn-next:hover,
+.modal-overlay .btn-submit:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+}
+
+.modal-overlay .btn-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ===========================
+   Success Screen
+=========================== */
+.modal-overlay .success-message {
+  text-align: center;
+  padding: 50px 30px 40px;
+}
+.modal-overlay .success-animation {
+  margin-bottom: 20px;
+}
+.modal-overlay .success-icon {
+  font-size: 68px;
+  color: #22c55e;
+}
+.modal-overlay .success-message h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 12px;
+  color: var(--foreground);
+}
+.modal-overlay .success-message > p {
+  color: #8a8e92;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.modal-overlay .success-details {
+  background: var(--background2);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 28px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-overlay .success-details p {
+  font-size: 13px;
+  color: var(--foreground);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.modal-overlay .success-details p svg {
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.modal-overlay .close-success-btn {
+  background: #f59e0b;
+  color: #000;
+  border: none;
+  padding: 14px 40px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 15px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.2s ease;
+}
+
+.modal-overlay .close-success-btn:hover {
+  background: #d97706;
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   RTL — Modal
+=========================== */
+.modal-overlay.ar .modal-close {
+  right: auto;
+  left: 18px !important;
+}
+.modal-overlay.ar .form-group label {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+.modal-overlay.ar .modal-header,
+.modal-overlay.ar .confirm-step,
+.modal-overlay.ar .success-details {
+  text-align: right;
+}
+.modal-overlay.ar .summary-item > span:last-child,
+.modal-overlay.ar .summary-item > strong {
+  text-align: left;
+}
+
+.modal-overlay.ar .btn-prev svg,
+.modal-overlay.ar .btn-next svg {
+  transform: rotate(180deg);
+}
+
+/* ===========================
+   Responsive — Modal
+=========================== */
+@media (max-width: 768px) {
+  .modal-overlay .modal-container {
+    padding: 20px 16px;
+  }
+  .modal-overlay .checkout-steps {
+    padding: 20px 0 0;
+  }
+  .modal-overlay .checkout-steps .step label {
+    font-size: 10px;
+  }
+  .modal-overlay .modal-step {
+    padding: 16px 0;
+  }
+  .modal-overlay .modal-actions {
+    flex-direction: column;
+    padding: 14px 0 0;
+  }
+  .modal-overlay .btn-prev {
+    flex: 1;
+  }
+  .modal-overlay .modal-header {
+    padding: 0 0 15px;
+  }
+  .modal-overlay .success-message {
+    padding: 36px 0 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .modal-overlay .checkout-steps::before {
+    display: none;
+  }
+  .modal-overlay .checkout-steps .step label {
+    display: none;
+  }
+}
