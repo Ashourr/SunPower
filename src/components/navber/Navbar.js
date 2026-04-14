@@ -64,15 +64,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (open) {
-      const timer = setTimeout(() => {
-        setOpen(false);
-      }, 0);
-      
-      return () => clearTimeout(timer);
-    }
-  }, [pathname, open]);
+useEffect(() => {
+  // eslint-disable-next-line react-hooks/set-state-in-effect
+  setOpen(false);
+}, [pathname]);
 
   return (
     <div className={`nav-bar w-100 ${scrolled ? "backriund" : ""}`}>

@@ -33,7 +33,7 @@ function CartToast({ show, locale }) {
 }
 
 export default function ProductDetails() {
-const locale = useLocale();
+  const locale = useLocale();
   const isAr = locale === "ar";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
@@ -105,6 +105,10 @@ const locale = useLocale();
     console.log("Added to cart:", { ...product, quantity, total: totalPrice });
   };
 
+  // دالة الشراء المباشر
+  const handleBuyNow = () => {
+    setIsModalOpen(true);
+  };
   return (
     <>
       <div className={`product-details-page ${locale}`}>

@@ -169,8 +169,8 @@ export default function ServiceDetails() {
               <Image 
                 src="/image/download (1).webp"
                 alt="Solar Tech"
-                width={1000}
-                height={1000}
+                width={500}
+                height={300}
                 className="feature-main-img"
               />
 

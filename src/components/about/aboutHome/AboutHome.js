@@ -45,11 +45,26 @@ export default function AboutHome() {
           <div className="col-12 col-md-6">
             <div className="about-video">
               <div className="video-container">
-                <iframe
+                {/* <iframe
                   src="https://www.youtube.com/embed/Ig01cl7k6vI?si=4ETFXGhdmKT4Ycde"
                   title="SunPower Video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                /> */}
+                {/* <iframe
+                  src="https://www.youtube.com/embed/PuLQ44_NIaE?si=jZGxl-IF6olV3qQN"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                /> */}
+
+                <iframe
+                  src="https://www.youtube.com/embed/k92aZqPyc7s?si=URz4tdg_bA17bILy"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
               </div>
