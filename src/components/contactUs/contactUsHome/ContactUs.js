@@ -139,15 +139,27 @@ export default function ContactUs() {
                 </h4>
                 <div className="location-item">
                   <p className="country">
-                    {locale === "ar" ? "مصر، الفيوم" : "EGYPT, FAYOUM"}
+                    {locale === "ar"
+                      ? "مصر - أكتوبر - الحصري"
+                      : "EGYPT - OCTOBER - EL HOSARY"}
                   </p>
-                  <p className="addr">100 Solar Way, Fayoum City</p>
+                  <p className="addr">
+                    {locale === "ar"
+                      ? "ممشى الحصري، مول الطاقة الجديد - أكتوبر"
+                      : "El Hosary Walk, New Energy Mall - October"}
+                  </p>
                 </div>
                 <div className="location-item mt-3">
                   <p className="country">
-                    {locale === "ar" ? "الإمارات، دبي" : "DUBAI, UAE"}
+                    {locale === "ar"
+                      ? "القاهرة - وسط البلد - متفرع من ش رمسيس"
+                      : "CAIRO - DOWNTOWN - OFF RAMSES ST."}
                   </p>
-                  <p className="addr">The Solar Tower, Sustainability City</p>
+                  <p className="addr">
+                    {locale === "ar"
+                      ? "23 شعبان، متفرع من رمسيس - وسط البلد"
+                      : "23 Shaban St., off Ramses - Downtown"}
+                  </p>
                 </div>
               </div>
             </div>

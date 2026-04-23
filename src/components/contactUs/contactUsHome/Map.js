@@ -34,24 +34,37 @@ export default function Map() {
       // ضبط أيقونات الماركر
       delete L.Icon.Default.prototype._getIconUrl;
       L.Icon.Default.mergeOptions({
-        iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+        iconRetinaUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
         iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-        shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
+        shadowUrl:
+          "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
       });
 
       if (!isMounted) return;
 
       // إنشاء الخريطة
       const map = L.map(mapRef.current).setView([30.0444, 31.2357], 7);
-      
+
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
 
       // إضافة الماركرز
       const locations = [
-        { id: 1, name: "فرع القاهرة", coords: [30.0444, 31.2357], desc: "مقرنا في مدينة نصر" },
-        { id: 2, name: "فرع الفيوم", coords: [29.3084, 30.8428], desc: "مكتبنا في مدينة الفيوم" },
+        {
+          id: 1,
+          name: "فرع أكتوبر - الحصري",
+          coords: [29.9773, 30.9346],
+          desc: "ممشى الحصري، مول الطاقة الجديد",
+        },
+        {
+          id: 2,
+          name: "فرع وسط البلد - القاهرة",
+          coords: [30.0488, 31.2457],
+          desc: "23 شعبان، متفرع من رمسيس - وسط البلد",
+        },
       ];
 
       locations.forEach((loc) => {

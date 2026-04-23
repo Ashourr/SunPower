@@ -144,8 +144,7 @@ export default function ServiceHome() {
                 </h2>
               )}
             </div>
-
-            {/* إخفاء زر "عرض الكل" إذا كنا بالفعل في صفحة الخدمات */}
+            
             {!isServicesPage && (
               <div>
                 <Link href={`/${locale}/services`} className={`${locale}`}>
