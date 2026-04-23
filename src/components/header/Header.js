@@ -1,8 +1,6 @@
 "use client";
 import "./header.css";
 import { Link } from "../../../i18n/navigation";
-import Image from "next/image";
-import headerImg from "../../../public/image/download (1).webp";
 import { useLocale } from "next-intl";
 
 export default function Header() {
@@ -39,7 +37,7 @@ export default function Header() {
 
           <div className="header-buttons">
             <Link href="/cases" className={`btn-1`}>
-              {locale === "ar" ? "مشاريعنا" : "Our Projects"}
+              {locale === "ar" ? "منتجاتنا" : "Our Products"}
             </Link>
             <Link href="/calculate_zakat" className={`btn-2`}>
               {locale === "ar" ? "تواصل معنا" : "Contact Us"}

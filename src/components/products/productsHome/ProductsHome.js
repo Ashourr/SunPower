@@ -11,142 +11,96 @@ export default function ProductsHome() {
   const locale = useLocale();
   const pathname = usePathname();
 
-  // مصفوفة البيانات كاملة باللغتين (8 منتجات)
   const products = [
     {
       id: 1,
-      tagAr: "لوح شمسي",
-      tagEn: "PANEL",
-      effAr: "كفاءة 22.8%",
-      effEn: "22.8% Eff.",
-      titleAr: "هورايزون ماكس 450 واط",
-      titleEn: "Horizon Max 450W",
-      descAr:
-        "تقنية Bifacial المتطورة لالتقاط الضوء المنعكس وتحقيق أقصى إنتاجية للطاقة.",
+      titleAr: "لمبة شمسية ليد 100 واط",
+      titleEn: "100W Solar LED Bulb",
+      descAr: "لمبة موفرة للطاقة مع بطارية ليثيوم مدمجة وكاشف حركة ليلي.",
       descEn:
-        "Advanced Bifacial technology capturing reflected light for maximum energy yield.",
-      price: "$899.00",
-      img: "/image/p1.webp",
+        "Energy-saving bulb with built-in lithium battery and motion sensor for night.",
+      price: "180",
+      img: "/image/p-1.webp",
     },
     {
       id: 2,
-      tagAr: "بطارية",
-      tagEn: "BATTERY",
-      effAr: "سعة 13.5 كيلوواط",
-      effEn: "13.5 kWh Capacity",
-      titleAr: "لونا ستورج كور",
-      titleEn: "Luna Storage Core",
-      descAr:
-        "تخزين ليثيوم عالي الكثافة مع نظام إدارة حراري ذكي لضمان طول العمر.",
+      titleAr: "عمود إنارة شمسي 6 متر",
+      titleEn: "6m Solar Street Light Pole",
+      descAr: "عمود إنارة متكامل بلوح شمسي 150 واط وبطارية تدوم حتى 12 ساعة.",
       descEn:
-        "High-density lithium storage with intelligent thermal management for longevity.",
-      price: "$6,450.00",
-      img: "/image/p1.webp",
+        "Integrated lighting pole with 150W solar panel and battery lasting up to 12 hours.",
+      price: "2,850",
+      img: "/image/p-2.webp",
     },
     {
       id: 3,
-      tagAr: "محول ذكي",
-      tagEn: "SMART INVERTER",
-      effAr: "هجين جاهز",
-      effEn: "Hybrid Ready",
-      titleAr: "نيكسوس إنفرتر ذكي",
-      titleEn: "Nexus Smart Inverter",
-      descAr:
-        "تحويل سلس للطاقة الشمسية إلى تيار متردد نقي مع مراقبة سحابية متقدمة.",
+      titleAr: "كشاف شمسي محمول 200 واط",
+      titleEn: "200W Portable Solar Floodlight",
+      descAr: "كشاف خارجي مقاوم للماء مع ريموت تحكم وزاوية إضاءة عريضة.",
       descEn:
-        "Seamless solar conversion to pure AC wave with advanced cloud monitoring.",
-      price: "$1,200.00",
-      img: "/image/p1.webp",
+        "Waterproof outdoor floodlight with remote control and wide beam angle.",
+      price: "420",
+      img: "/image/p-3.webp",
     },
     {
       id: 4,
-      tagAr: "نظام ري",
-      tagEn: "IRRIGATION",
-      effAr: "أداء عالي",
-      effEn: "High Performance",
-      titleAr: "مضخة شمسية توربينية",
-      titleEn: "Solar Turbine Pump",
+      titleAr: "بطارية جل شمسية 150 أمبير",
+      titleEn: "150Ah Gel Solar Battery",
       descAr:
-        "حلول ري زراعية تعمل كلياً بالطاقة الشمسية لتقليل التكاليف التشغيلية.",
+        "بطارية عميقة التفريغ صيانة مجانية، مثالية لأنظمة الطاقة الشمسية.",
       descEn:
-        "Agricultural irrigation solutions powered entirely by solar to reduce costs.",
-      price: "$2,500.00",
-      img: "/image/p1.webp",
+        "Deep-cycle maintenance-free gel battery, ideal for solar systems.",
+      price: "2,200",
+      img: "/image/p-4.webp",
     },
     {
       id: 5,
-      tagAr: "لوح شمسي",
-      tagEn: "PANEL",
-      effAr: "كفاءة 21%",
-      effEn: "21% Eff.",
-      titleAr: "سولار إكس برو",
-      titleEn: "Solar X Pro",
-      descAr:
-        "تصميم متين يتحمل أصعب الظروف المناخية مع أداء ممتاز في الإضاءة المنخفضة.",
+      titleAr: "لوح شمسي 550 واط مونو",
+      titleEn: "550W Mono Solar Panel",
+      descAr: "كفاءة عالية بأقل مساحة، مناسب للمنازل والمزارع الكبيرة.",
       descEn:
-        "Durable design withstanding harsh climates and excellent low-light performance.",
-      price: "$750.00",
-      img: "/image/p1.webp",
+        "High efficiency in minimal space, ideal for homes and large farms.",
+      price: "1,750",
+      img: "/image/p-5.webp",
     },
     {
       id: 6,
-      tagAr: "بطارية",
-      tagEn: "BATTERY",
-      effAr: "سعة 10 كيلوواط",
-      effEn: "10 kWh Capacity",
-      titleAr: "إيكو ستور ميني",
-      titleEn: "EcoStore Mini",
-      descAr:
-        "الحل المثالي لتخزين الطاقة في المنازل المتوسطة مع سهولة التركيب.",
+      titleAr: "منظم شحن MPPT 60 أمبير",
+      titleEn: "60A MPPT Charge Controller",
+      descAr: "يتتبع نقطة الطاقة القصوى لزيادة شحن البطاريات حتى 30%.",
       descEn:
-        "The perfect energy storage solution for medium homes with easy installation.",
-      price: "$3,200.00",
-      img: "/image/p1.webp",
+        "Tracks maximum power point to increase battery charging by up to 30%.",
+      price: "1,300",
+      img: "/image/p-6.webp",
     },
     {
       id: 7,
-      tagAr: "محول",
-      tagEn: "INVERTER",
-      effAr: "منفصل عن الشبكة",
-      effEn: "Off-Grid",
-      titleAr: "فولت ماستر 5K",
-      titleEn: "VoltMaster 5k",
-      descAr:
-        "محول طاقة قوي مخصص للأنظمة المنفصلة عن الشبكة في المناطق النائية.",
-      descEn:
-        "Powerful inverter dedicated to off-grid systems in remote areas.",
-      price: "$1,100.00",
-      img: "/image/p1.webp",
+      titleAr: "بطارية ليثيوم فوسفات 200 أمبير",
+      titleEn: "200Ah LiFePO4 Battery",
+      descAr: "خفيفة الوزن، عمر طويل جداً (أكثر من 4000 دورة) و آمنة.",
+      descEn: "Lightweight, ultra-long life (4000+ cycles) and safe.",
+      price: "4,500",
+      img: "/image/p-7.webp",
     },
     {
       id: 8,
-      tagAr: "لوح شمسي",
-      tagEn: "PANEL",
-      effAr: "كفاءة 23%",
-      effEn: "23% Eff.",
-      titleAr: "ألترا ماكس 500 واط",
-      titleEn: "Ultra Max 500W",
-      descAr:
-        "أحدث ما توصلت إليه التكنولوجيا في كفاءة تحويل الطاقة الشمسية عالمياً.",
+      titleAr: "لمبة حديقة شمسية على شكل عمود",
+      titleEn: "Solar Garden Bollard Light",
+      descAr: "تصميم أنيق يضيء الممرات والحدائق تلقائياً عند الغروب.",
       descEn:
-        "The latest global technology in solar energy conversion efficiency.",
-      price: "$950.00",
-      img: "/image/p1.webp",
+        "Elegant design that automatically illuminates pathways and gardens at sunset.",
+      price: "95",
+      img: "/image/p-8.webp",
     },
     {
       id: 9,
-      tagAr: "لوح شمسي",
-      tagEn: "PANEL",
-      effAr: "كفاءة 23%",
-      effEn: "23% Eff.",
-      titleAr: "ألترا ماكس 500 واط",
-      titleEn: "Ultra Max 500W",
-      descAr:
-        "أحدث ما توصلت إليه التكنولوجيا في كفاءة تحويل الطاقة الشمسية عالمياً.",
+      titleAr: "كشاف حائط شمسي مع مستشعر",
+      titleEn: "Solar Wall Light with Sensor",
+      descAr: "كشاف حائط أنيق يعمل بالحركة لتوفير الطاقة والأمان للمداخل.",
       descEn:
-        "The latest global technology in solar energy conversion efficiency.",
-      price: "$950.00",
-      img: "/image/p1.webp",
+        "Elegant motion-activated wall light for energy saving and entrance security.",
+      price: "145",
+      img: "/image/p-9.webp",
     },
   ];
 
@@ -203,18 +157,12 @@ export default function ProductsHome() {
                 </div>
 
                 <div className="product-info">
-                  <div className="info-top">
-                    <span className="tag">
-                      {locale === "ar" ? item.tagAr : item.tagEn}
-                    </span>
-                    <span className="eff">
-                      {locale === "ar" ? item.effAr : item.effEn}
-                    </span>
-                  </div>
                   <h3>{locale === "ar" ? item.titleAr : item.titleEn}</h3>
                   <p>{locale === "ar" ? item.descAr : item.descEn}</p>
                   <div className="info-bottom">
-                    <span className="price">{item.price}</span>
+                    <span className="price">
+                      {item.price} {locale === "ar" ? "جنيه" : "EGP"}
+                    </span>
                     <Link
                       href={`/${locale}/products/${item.id}`}
                       className="go-btn"

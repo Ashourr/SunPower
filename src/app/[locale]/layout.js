@@ -1,4 +1,3 @@
-// src/app/[locale]/layout.js
 import Navbar from "@/components/navber/Navbar";
 import Bootstrap from "@/components/Bootstartp";
 import ClientProvider from "@/rit/slices/ClientProvider";

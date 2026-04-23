@@ -64,7 +64,7 @@ export default function AboutHome() {
                   src="https://www.youtube.com/embed/k92aZqPyc7s?si=URz4tdg_bA17bILy"
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerpolicy="strict-origin-when-cross-origin"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                 />
               </div>

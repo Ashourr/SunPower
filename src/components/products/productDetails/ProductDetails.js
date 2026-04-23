@@ -41,10 +41,10 @@ export default function ProductDetails() {
   const [quantity, setQuantity] = useState(1);
 
   const productImages = [
-    "/image/p1.webp",
-    "/image/p2.webp",
-    "/image/p1.webp",
-    "/image/p2.webp",
+    "/image/p10.webp",
+    "/image/p20.webp",
+    "/image/p10.webp",
+    "/image/p20.webp",
   ];
 
   // سعر المنتج (نحوله لرقم عشان نحسب عليه)
