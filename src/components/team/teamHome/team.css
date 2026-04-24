@@ -88,10 +88,6 @@
   object-fit: cover;
   transition: 0.5s ease;
 }
-.team-section .team-card:hover .member-img-wrapper img {
-  transform: scale(1.1) filter(brightness(0.5));
-  filter: grayscale(0.4) brightness(0.6);
-}
 
 /* Social Overlay Effect */
 .team-section .social-overlay {

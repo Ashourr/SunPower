@@ -37,19 +37,19 @@ export default function Cart() {
   const [cartItems, setCartItems] = useState([
     {
       id: 1,
-      nameAr: "لوح شمسي Horizon Max 450W",
-      nameEn: "Horizon Max 450W Solar Panel",
-      price: 899,
+      nameAr: "لمبة شمسية ليد 100 واط",
+      nameEn: "100W Solar LED Bulb",
+      price: 180,
       quantity: 2,
-      img: "/image/p1.webp",
+      img: "/image/p-1.webp",
     },
     {
       id: 2,
-      nameAr: "بطارية Luna Storage Core",
-      nameEn: "Luna Storage Core Battery",
-      price: 6450,
+      nameAr: "عمود إنارة شمسي 6 متر",
+      nameEn: "6m Solar Street Light Pole",
+      price: 2850,
       quantity: 1,
-      img: "/image/p1.webp",
+      img: "/image/p-2.webp",
     },
   ]);
 

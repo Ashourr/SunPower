@@ -2,16 +2,7 @@
 import "./team.css";
 import { useLocale } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faGithub,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faArrowRight,
-  faEnvelope,
-  faUsersGear,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faUsersGear } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "../../../../i18n/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,58 +14,43 @@ export default function Team() {
   const teamMembers = [
     {
       id: 1,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "معاذ احمد محمد",
+      nameEn: "Moaz Ahmed Mohamed",
+      img: "/image/team-1.jpeg",
     },
     {
       id: 2,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "بسام محمد احمد",
+      nameEn: "Bassam Mohamed Ahmed",
+      img: "/image/team-2.jpeg",
     },
     {
       id: 3,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "فاطمه احمد محمد",
+      nameEn: "Fatma Ahmed Mohamed",
+      img: "/image/team-3.jpeg",
     },
     {
       id: 4,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "يمني محمد عبد الحميد",
+      nameEn: "Yomna Mohamed Abd Elhamid",
+      img: "/image/team-4.jpeg",
     },
     {
       id: 5,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "يسرى محروس عويضة",
+      nameEn: "Yosra Mahrous Owaida",
+      img: "/image/team-5.jpeg",
     },
     {
       id: 6,
-      nameAr: "م. محمد عاشور",
-      nameEn: "Eng. Mohamed Ashour",
-      roleAr: "كبير مهندسي البرمجيات",
-      roleEn: "Senior Software Engineer",
-      img: "/image/team-1.webp",
+      nameAr: "فرحه سيد عباس",
+      nameEn: "Farha Sayed Abbas",
+      img: "/image/team-6.jpeg",
     },
   ];
 
-  // التحقق مما إذا كنا في صفحة الخدمات أم في الصفحة الرئيسية
   const isTeamPage = pathname.includes("/team");
-
-  // عرض 12 إذا كنا في الصفحة، و 6 فقط إذا كنا في السكشن بالصفحة الرئيسية
   const displayedMembers = isTeamPage ? teamMembers : teamMembers.slice(0, 6);
 
   return (
@@ -100,7 +76,6 @@ export default function Team() {
               )}
             </div>
 
-            {/* إخفاء زر "عرض الكل" إذا كنا بالفعل في صفحة الخدمات */}
             {!isTeamPage && (
               <div>
                 <Link href={`/${locale}/team`} className={`${locale}`}>
@@ -122,22 +97,11 @@ export default function Team() {
                     alt={member.nameEn}
                     width={500}
                     height={500}
+                    style={{ objectPosition: "top" }}
                   />
-                  <div className="social-overlay">
-                    <a href="#">
-                      <FontAwesomeIcon icon={faLinkedin} />
-                    </a>
-                    <a href="#">
-                      <FontAwesomeIcon icon={faGithub} />
-                    </a>
-                    <a href="#">
-                      <FontAwesomeIcon icon={faEnvelope} />
-                    </a>
-                  </div>
                 </div>
                 <div className="member-info">
                   <h3>{locale === "ar" ? member.nameAr : member.nameEn}</h3>
-                  <p>{locale === "ar" ? member.roleAr : member.roleEn}</p>
                 </div>
               </div>
             </div>
