@@ -93,8 +93,8 @@ export default function Footer() {
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
                 <span>
                   {locale === "ar"
-                    ? "الفيوم، مدينة الفيوم، مصر"
-                    : "Fayoum City, Egypt"}
+                    ? "مصر - أكتوبر - الحصري"
+                    : "EGYPT - OCTOBER - EL HOSARY"}
                 </span>
               </div>
               <div className="contact-item">
