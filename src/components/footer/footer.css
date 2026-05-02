@@ -146,13 +146,15 @@
 @media (max-width: 768px) {
   .main-footer {
     padding: 60px 0 30px;
-    text-align: center;
+    text-align: center !important;
   }
   .main-footer .footer-links h4::after, 
   .main-footer .footer-contact h4::after, 
   .main-footer .footer-newsletter h4::after {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -10px;
+    right: auto !important;
   }
   .main-footer .social-links {
     justify-content: center;

@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
   margin: 35px 0;
 }
 .faqs-section  .content .title h2 {

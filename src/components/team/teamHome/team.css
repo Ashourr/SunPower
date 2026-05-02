@@ -15,14 +15,14 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
   margin: 35px 0;
 }
 .team-section .content .title h2 {
   margin-bottom: 20px;
   font-size: 50px;
   font-style: italic;
-  text-align: start;
+  text-align: flex-start;
   color: var(--primary-color);
 }
 .team-section .content .title h2 .span1 {
