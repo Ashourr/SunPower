@@ -25,8 +25,8 @@ nav {
   background-color: var(--background) !important;
 }
 .nav-bar .img img {
-  width: 175px !important;
-  height: 65px !important;
+  width: 200px !important;
+  height: 60px !important;
 }
 @media (max-width: 991px) {
   .navbar {
@@ -158,5 +158,11 @@ nav .lang {
   }
   nav .lang-but {
     display: none;
+  }
+}
+@media (max-width: 500px) {
+  .nav-bar .img img {
+    width: 150px !important;
+    height: 50px !important;
   }
 }

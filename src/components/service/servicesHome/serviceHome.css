@@ -1,13 +1,10 @@
 .serviceHome {
   padding: 100px 0;
-  background-color: var(--background);
+  background: var(--background);
   color: white;
-  /* background-image: url("../../Imges/asset 30.png"); */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
   z-index: 9;
+  overflow-x: hidden;
 }
 .serviceHome.ar {
   direction: rtl;
@@ -19,13 +16,16 @@
   border-radius: 38px;
   color: var(--primary-color);
   font-size: 15px;
+  background: rgba(243, 156, 18, 0.1);
+  backdrop-filter: blur(4px);
+  letter-spacing: 1px;
 }
 .serviceHome .content .title {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  align-items: start;
-  margin: 35px 0;
+  align-items: flex-start;
+  margin: 35px 0 50px;
 }
 .serviceHome .content .title h2 {
   margin-bottom: 20px;
@@ -36,103 +36,303 @@
 .serviceHome .content .title h2 .span1 {
   font-weight: 700;
   font-style: normal;
+  color: white;
 }
 .serviceHome .content .title h2 .span2 {
   font-weight: 700;
+  color: var(--primary-color);
 }
 .serviceHome .content .title a {
-  border: 1px solid var(--foreground);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   text-decoration: none;
-  color: var(--foreground);
-  display: block;
+  color: white;
   padding: 10px 20px;
   border-radius: 42px;
   display: flex;
   align-items: center;
   gap: 10px;
   transition: 0.4s;
-  font-size: 18px;
-  text-transform: capitalize;
   font-size: 17px;
+  text-transform: capitalize;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(4px);
 }
 .serviceHome .content .title .i {
   transform: rotate(-45deg);
   transition: 0.2s;
-  color: var(--foreground);
 }
 .serviceHome .content .title a:hover {
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
+  border-color: var(--primary-color);
+  background: rgba(243, 156, 18, 0.1);
 }
 .serviceHome .content .title a:hover .i {
   transform: rotate(0deg);
   color: var(--primary-color);
 }
-.serviceHome .itme {
-  background-color: var(--background2);
-  padding: 20px;
-  border-radius: 10px;
+.service-card {
   margin: 20px 0;
 }
-.serviceHome .itme .logo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.service-image {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
 }
-.serviceHome .itme .logo p {
-  font-size: 50px;
-  font-weight: 600;
-  color: var(--foreground);
-  opacity: 0.3;
-  margin: 0;
+.service-image img {
+  transition: 0.4s ;
 }
-.serviceHome .itme h3 {
+.service-card:hover .service-image img {
+  transform: scale(1.08);
+}
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.25)
+  );
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+.service-card:hover .image-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.55)
+  );
+}
+.service-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 25px 25px;
+  z-index: 2;
+  text-align: center;
+  background: linear-gradient(to top, rgba(0, 0, 0, 10), transparent);
+}
+.service-title {
   font-size: 22px;
-  margin: 15px 0;
-  font-weight: 600;
-  transition: 0.4s;
-  color: var(--foreground);
+  font-weight: 700;
+  margin: 0;
+  color: white;
+  transition: all 0.4s ease;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 8px;
 }
-.serviceHome .itme .pra {
-  color: var(--foreground);
+.service-title::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--primary-color);
+  transition: width 0.4s ease;
+}
+.service-card:hover .service-title::after {
+  width: 60px;
+}
+.service-card:hover .service-title {
+  color: var(--primary-color);
+}
+.service-info {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+  transition: 0.5s;
+  margin-top: 0;
+}
+.service-card:hover .service-info {
+  max-height: 150px;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 15px;
+}
+.service-card:hover .service-content {
+  bottom: 0px;
+}
+.service-desc {
   font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 12px 0;
+  font-weight: 400;
 }
-
-.serviceHome .itme a {
-  color: var(--foreground);
+.service-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--primary-color);
   text-decoration: none;
-  font-size: 15px;
-  transition: 0.4s;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
-.serviceHome .itme .i {
+.service-link .icon {
   transform: rotate(-45deg);
-  transition: 0.4s;
-  color: var(--foreground);
+  transition: 0.3s ease;
+  font-size: 11px;
 }
-
-.serviceHome .itme:hover a {
-  color: var(--primary-color);
+.service-link:hover {
+  gap: 12px;
+  color: white;
 }
-.serviceHome .itme:hover .i {
+.service-link:hover .icon {
   transform: rotate(0deg);
-  color: var(--primary-color);
 }
-.serviceHome .itme:hover h3 {
-  color: var(--primary-color);
+.serviceHome.ar .service-link .icon {
+  transform: rotate(-45deg);
 }
-@media (max-width: 520px) {
-  .serviceHome .content .title h2 {
-    font-size: 40px;
+.serviceHome.ar .service-link:hover .icon {
+  transform: rotate(0deg);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+.service-card {
+  animation: fadeInUp 0.7s ease forwards;
+  opacity: 0;
+}
+.service-card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+.service-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.service-card:nth-child(3) {
+  animation-delay: 0.15s;
+}
+.service-card:nth-child(4) {
+  animation-delay: 0.2s;
+}
+.service-card:nth-child(5) {
+  animation-delay: 0.25s;
+}
+.service-card:nth-child(6) {
+  animation-delay: 0.3s;
+}
+.service-card:nth-child(7) {
+  animation-delay: 0.35s;
+}
+.service-card:nth-child(8) {
+  animation-delay: 0.4s;
+}
+.service-card:nth-child(9) {
+  animation-delay: 0.45s;
+}
+.service-card:nth-child(10) {
+  animation-delay: 0.5s;
+}
+.service-card:nth-child(11) {
+  animation-delay: 0.55s;
+}
+.service-card:nth-child(12) {
+  animation-delay: 0.6s;
+}
+@media (max-width: 992px) {
+  .serviceHome {
+    padding: 70px 0;
+  }
+  .serviceHome .content .title h2 {
+    font-size: 42px;
+  }
+  .service-image {
+    height: 300px;
+  }
+  .service-title {
+    font-size: 20px;
+  }
+  .service-desc {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .serviceHome {
+    padding: 60px 0;
+  }
+  .serviceHome .content .title h2 {
+    font-size: 36px;
+  }
+  .serviceHome .content .title {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  .service-image {
+    height: 300px;
+  }
+  .service-content {
+    padding: 20px 20px 20px;
+  }
+  .service-title {
+    font-size: 18px;
+  }
+  .service-desc {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .serviceHome {
+    padding: 50px 0;
+  }
+  .serviceHome .content .title h2 {
+    font-size: 28px;
+  }
+  .service-image {
+    height: 300px;
+  }
+  .service-content {
+    padding: 18px 15px 18px;
+  }
+  .service-title {
+    font-size: 17px;
+  }
+  .service-desc {
+    font-size: 11px;
+  }
+  .service-card:hover .service-info {
+    max-height: 180px;
+  }
+}
+
 @media (max-width: 425px) {
   .serviceHome .content .title h2 {
-    font-size: 30px;
+    font-size: 24px;
   }
-}
-@media (max-width: 350px) {
-  .serviceHome .content .title h2 {
-    font-size: 25px;
+  .service-image {
+    height: 280px;
   }
 }
 
+@media (max-width: 767px) {
+  .service-card .service-info {
+    max-height: 150px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 15px;
+  }
+}
