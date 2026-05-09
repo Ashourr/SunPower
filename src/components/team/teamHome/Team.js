@@ -28,13 +28,13 @@ export default function Team() {
       id: 3,
       nameAr: "فاطمه احمد محمد",
       nameEn: "Fatma Ahmed Mohamed",
-      img: "/image/team-3.jpeg",
+      img: "/image/team-3.jpg",
     },
     {
       id: 4,
       nameAr: "يمني محمد عبد الحميد",
       nameEn: "Yomna Mohamed Abd Elhamid",
-      img: "/image/team-4.jpeg",
+      img: "/image/team-4.jpg",
     },
     {
       id: 5,
