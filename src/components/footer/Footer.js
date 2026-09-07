@@ -15,6 +15,8 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function Footer() {
   const locale = useLocale();
@@ -22,9 +24,15 @@ export default function Footer() {
   return (
     <footer className={`main-footer ${locale}`}>
       <div className="container">
-        <div className="row g-5">
+        <motion.div
+          className="row g-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {/* 1. عن الشركة والبراند */}
-          <div className="col-lg-4 col-md-6">
+          <motion.div variants={fadeUp} className="col-lg-4 col-md-6">
             <div className="footer-info">
               <h2 className="footer-logo">
                 SUN<span>POWER</span>
@@ -49,10 +57,9 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 2. روابط سريعة */}
-          <div className="col-lg-2 col-md-6">
+          <motion.div variants={fadeUp} className="col-lg-2 col-md-6">
             <div className="footer-links">
               <h4>{locale === "ar" ? "روابط سريعة" : "Quick Links"}</h4>
               <ul>
@@ -83,10 +90,9 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 3. معلومات التواصل */}
-          <div className="col-lg-3 col-md-6">
+          <motion.div variants={fadeUp} className="col-lg-3 col-md-6">
             <div className="footer-contact">
               <h4>{locale === "ar" ? "تواصل معنا" : "Contact Us"}</h4>
               <div className="contact-item">
@@ -106,10 +112,9 @@ export default function Footer() {
                 <span>info@sunpower.energy</span>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* 4. النشرة الإخبارية */}
-          <div className="col-lg-3 col-md-6">
+          <motion.div variants={fadeUp} className="col-lg-3 col-md-6">
             <div className="footer-newsletter">
               <h4>{locale === "ar" ? "النشرة الإخبارية" : "Newsletter"}</h4>
               <p>
@@ -129,8 +134,8 @@ export default function Footer() {
                 </button>
               </form>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* حقوق النشر */}
         <div className="footer-bottom">

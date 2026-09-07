@@ -6,6 +6,8 @@ import { usePathname } from "../../../../i18n/navigation";
 import { useLocale } from "next-intl";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function ServiceHome() {
   let locale = useLocale();
@@ -140,9 +142,17 @@ export default function ServiceHome() {
   return (
     <div className={`serviceHome ${locale}`}>
       <div className="container">
-        <div className="content">
-          <h6>{locale === "ar" ? "ماذا نقدم" : "WHAT WE OFFER"}</h6>
-          <div className="title">
+        <motion.div
+          className="content"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.h6 variants={fadeUp}>
+            {locale === "ar" ? "ماذا نقدم" : "WHAT WE OFFER"}
+          </motion.h6>
+          <motion.div variants={fadeUp} className="title">
             <div>
               {locale === "ar" ? (
                 <h2 className={`${locale}`}>حلول طاقة ذكية لعملائنا</h2>
@@ -163,12 +173,22 @@ export default function ServiceHome() {
                 </Link>
               </div>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="row">
+        <motion.div
+          className="row"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {displayedServices.map((service) => (
-            <div className="col-12 col-md-6 col-lg-4" key={service.id}>
+            <motion.div
+              className="col-12 col-md-6 col-lg-4"
+              key={service.id}
+              variants={fadeUp}
+            >
               <div className="service-card">
                 <div className="service-image">
                   <Image
@@ -203,9 +223,9 @@ export default function ServiceHome() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

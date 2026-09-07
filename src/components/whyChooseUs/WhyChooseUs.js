@@ -1,6 +1,8 @@
 "use client";
 import "./whyChooseUs.css";
 import { useLocale } from "next-intl";
+import { motion } from "motion/react";
+import { fadeUp } from "@/lib/motion";
 
 export default function WhyChooseUs() {
   const locale = useLocale();
@@ -65,18 +67,23 @@ export default function WhyChooseUs() {
 
           {/* محتوى السكشن */}
           <div className="container content-inner">
-            <div className="text-box">
-              {/* إظهار الرقم فقط إذا لم يكن السكشن هو الرئيسي */}
+            <motion.div
+              className="text-box"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.45 }}
+            >
               {!item.isMain && <span className="step-num">{item.id}</span>}
-              
+
               <h2 className={item.isMain ? "main-title" : "item-title"}>
                 {locale === "ar" ? item.titleAr : item.titleEn}
               </h2>
-              
+
               <p className="item-desc">
                 {locale === "ar" ? item.descAr : item.descEn}
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       ))}

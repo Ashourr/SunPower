@@ -1,12 +1,14 @@
+"use client";
 import React from "react";
 import "./headerPage.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp } from "@/lib/motion";
 
 export default function HeaderPage({ title, link, suptitle, bgImg }) {
-
   return (
     <div className="headerPage">
       <Image
@@ -14,19 +16,23 @@ export default function HeaderPage({ title, link, suptitle, bgImg }) {
         alt={title}
         fill
         priority
-        style={{ objectFit: "cover", objectPosition: "center" , zIndex: -1 }}
+        style={{ objectFit: "cover", objectPosition: "center", zIndex: -1 }}
         quality={80}
       />
-      <div>
-        <h2>{title}</h2>
-        <div className="link">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.h2 variants={fadeUp}>{title}</motion.h2>
+        <motion.div variants={fadeUp} className="link">
           <Link href="/" aria-label={link}>
             <span>{link}</span>
             <FontAwesomeIcon className={`i`} icon={faArrowRight} />
           </Link>
           <h6>{suptitle}</h6>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

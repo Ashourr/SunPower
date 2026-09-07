@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { usePathname } from "../../../../i18n/navigation";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function Faqs() {
   const locale = useLocale();
@@ -98,12 +100,18 @@ export default function Faqs() {
   return (
     <section className={`faqs-section ${locale}`}>
       <div className="container">
-        <div className="content">
-          <h6>
+        <motion.div
+          className="content"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.h6 variants={fadeUp}>
             <FontAwesomeIcon icon={faQuestionCircle} />{" "}
             {locale === "ar" ? "الأسئلة الشائعة" : "FAQs"}
-          </h6>
-          <div className="title">
+          </motion.h6>
+          <motion.div variants={fadeUp} className="title">
             <div>
               {locale === "ar" ? (
                 <h2 className={`${locale}`}>
@@ -128,15 +136,22 @@ export default function Faqs() {
                 </Link>
               </div>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="faq-list">
+        <motion.div
+          className="faq-list"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {displayedFaqs.map((item, index) => (
-            <div
+            <motion.div
               key={index}
               className={`faq-item ${activeIndex === index ? "active" : ""}`}
               onClick={() => toggleAccordion(index)}
+              variants={fadeUp}
             >
               <div className="faq-question">
                 <h3>{locale === "ar" ? item.questionAr : item.questionEn}</h3>
@@ -151,9 +166,9 @@ export default function Faqs() {
                   <p>{locale === "ar" ? item.answerAr : item.answerEn}</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

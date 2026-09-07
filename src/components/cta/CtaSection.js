@@ -4,6 +4,8 @@ import { useLocale } from "next-intl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket, faSolarPanel, faUsers, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function CtaSection() {
   const locale = useLocale();
@@ -11,8 +13,14 @@ export default function CtaSection() {
   return (
     <section className={`cta-section ${locale}`}>
       <div className="container">
-        <div className="cta-box">
-          <div className="cta-content">
+        <motion.div
+          className="cta-box"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.div variants={fadeUp} className="cta-content">
             <span className="cta-badge">
               <FontAwesomeIcon icon={faRocket} /> {locale === "ar" ? "ابدأ مستقبلك الآن" : "Start Your Future Now"}
             </span>
@@ -35,9 +43,9 @@ export default function CtaSection() {
                 {locale === "ar" ? "تصفح الحلول" : "Explore Solutions"}
               </Link>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="cta-stats">
+          <motion.div variants={fadeUp} className="cta-stats">
             <div className="stat-item">
               <FontAwesomeIcon icon={faUsers} className="stat-icon" />
               <div className="stat-info">
@@ -52,8 +60,8 @@ export default function CtaSection() {
                 <p>{locale === "ar" ? "طاقة منتجة" : "Energy Produced"}</p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

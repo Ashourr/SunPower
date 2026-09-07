@@ -6,6 +6,8 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { usePathname } from "../../../../i18n/navigation";
 import Image from "next/image";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function ProductsHome() {
   const locale = useLocale();
@@ -112,11 +114,17 @@ export default function ProductsHome() {
       className={`products-home ${locale} ${!isProductsPage ? "home-section" : ""}`}
     >
       <div className="container">
-        <div className="content">
-          <h6>
+        <motion.div
+          className="content"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.h6 variants={fadeUp}>
             {locale === "ar" ? "منتجاتنا المتميزة" : "OUR PREMIUM PRODUCTS"}
-          </h6>
-          <div className="title">
+          </motion.h6>
+          <motion.div variants={fadeUp} className="title">
             <div>
               {locale === "ar" ? (
                 <h2>حلول طاقة ذكية لعملائنا</h2>
@@ -137,14 +145,21 @@ export default function ProductsHome() {
                 </Link>
               </div>
             )}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="row g-4">
+        <motion.div
+          className="row g-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {displayedProducts.map((item, index) => (
-            <div
+            <motion.div
               className={`col-12 col-md-12 ${isProductsPage ? "col-lg-4" : "col-lg-6"}  product-col ${!isProductsPage && index === 0 ? "first-card-home" : ""}`}
               key={item.id}
+              variants={fadeUp}
             >
               <div className="product-card">
                 <div className="product-img">
@@ -172,9 +187,9 @@ export default function ProductsHome() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

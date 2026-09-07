@@ -11,6 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "leaflet/dist/leaflet.css";
 import Map from "./Map";
+import { motion } from "motion/react";
+import { containerVariants, fadeUp, viewportOnce } from "@/lib/motion";
 
 export default function ContactUs() {
   const locale = useLocale();
@@ -18,11 +20,17 @@ export default function ContactUs() {
     <div className={`contact-page ${locale}`}>
       <div className="container py-5">
         {/* Header السكشن */}
-        <div className="contact-header mb-5">
-          <span className="top-tag">
+        <motion.div
+          className="contact-header mb-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
+          <motion.span variants={fadeUp} className="top-tag">
             {locale === "ar" ? "تواصل معنا" : "REACH OUT"}
-          </span>
-          <h1 className="main-title">
+          </motion.span>
+          <motion.h1 variants={fadeUp} className="main-title">
             {locale === "ar" ? (
               <>
                 لنمد <span className="highlight">المستقبل</span> بالطاقة.
@@ -32,17 +40,23 @@ export default function ContactUs() {
                 Let’s Power <span className="highlight">The Future</span>.
               </>
             )}
-          </h1>
-          <p className="sub-header">
+          </motion.h1>
+          <motion.p variants={fadeUp} className="sub-header">
             {locale === "ar"
               ? "هل لديك أسئلة حول كفاءة الطاقة الشمسية؟ فريقنا من الخبراء جاهز لتوجيه انتقالك إلى الطاقة النظيفة."
               : "Have questions about solar efficiency? Our experts are ready to guide your transition."}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="row g-5 mb-5">
+        <motion.div
+          className="row g-5 mb-5"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           {/* الجانب الأيسر: فورم المراسلة */}
-          <div className="col-lg-7">
+          <motion.div variants={fadeUp} className="col-lg-7">
             <div className="message-card">
               <h3>{locale === "ar" ? "أرسل رسالة" : "Send a Message"}</h3>
               <form className="contact-form">
@@ -95,10 +109,9 @@ export default function ContactUs() {
                 </button>
               </form>
             </div>
-          </div>
+          </motion.div>
 
-          {/* الجانب الأيمن: القنوات والمقرات */}
-          <div className="col-lg-5">
+          <motion.div variants={fadeUp} className="col-lg-5">
             <div className="info-side">
               <div className="direct-channels-card mb-4">
                 <div className="card-title-icon">
@@ -163,13 +176,18 @@ export default function ContactUs() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* سكشن الخريطة السفلي */}
-        <div className="map-wrapper-real">
+        <motion.div
+          className="map-wrapper-real"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+        >
           <Map />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
