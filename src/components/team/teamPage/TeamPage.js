@@ -11,7 +11,11 @@ export default function TeamPage() {
       <HeaderPage
         title={locale === "en" ? "Our Team" : "فريقنا"}
         link={locale === "en" ? "Home" : "الرئيسية"}
-        suptitle={locale === "en" ? "Meet our team" : "تعرف على فريقنا"}
+        suptitle={
+          locale === "en"
+            ? "Engineers and specialists delivering solar projects"
+            : "مهندسون ومتخصصون يقودون مشاريع الطاقة الشمسية"
+        }
         bgImg="/image/download (2).webp"
       />
       <Team />
